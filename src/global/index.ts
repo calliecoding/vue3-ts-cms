@@ -1,8 +1,7 @@
-import { ElButton, ElRow } from 'element-plus'
 import type { App } from 'vue'
+
+import registerElement from './register-element'
+
 export function registerApp(app: App): void {
-  const components = [ElButton, ElRow]
-  for (const component of components) {
-    app.component(component.name, component)
-  }
+  registerElement(app)
 }
