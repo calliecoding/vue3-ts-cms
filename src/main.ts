@@ -1,16 +1,13 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import { ElButton, ElRow } from 'element-plus'
+import type { App } from 'vue'
+import rootApp from './App.vue'
 
 import router from './router'
 import store from './store'
+import { registerApp } from '@/global/index'
 
-const app = createApp(App)
-
-const components = [ElButton, ElRow]
-for (const component of components) {
-  app.component(component.name, component)
-}
+const app: App = createApp(rootApp)
+registerApp(app)
 app.use(router)
 app.use(store)
 app.mount('#app')
