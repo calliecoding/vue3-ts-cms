@@ -41,7 +41,7 @@ axios.defaults.timeout = 10000
 // axios
 //   .get('/get', {
 //     params: {
-//       name: 'coderwhy',
+//       name: 'cc',
 //       age: 18
 //     },
 //     timeout: 5000,

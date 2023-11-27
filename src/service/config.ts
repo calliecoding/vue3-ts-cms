@@ -1,0 +1,15 @@
+// 环境变量
+// 1.方式一: 手动的切换不同的环境(不推荐)
+// const BASE_URL = 'http://cc.org/dev'
+// const BASE_NAME = 'cc'
+
+// const BASE_URL = 'http://cc.org/test'
+// const BASE_NAME = 'james'
+
+// const BASE_URL = 'http://cc.org/prod'
+// const BASE_NAME = 'kobe'
+
+// 2.根据process.env.NODE_ENV区分
+// 开发环境: development
+// 生成环境: production
+// 测试环境: test
