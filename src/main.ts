@@ -3,6 +3,7 @@ import type { App } from 'vue'
 import rootApp from './App.vue'
 
 import './service/axios.demo'
+import ccRequest from './service'
 
 import router from './router'
 import store from './store'
@@ -16,3 +17,5 @@ app.use(globalRegister)
 app.use(router)
 app.use(store)
 app.mount('#app')
+
+ccRequest.request()
