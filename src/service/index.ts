@@ -5,7 +5,7 @@ import { BASE_URL, TIME_OUT } from './request/config'
 const ccRequest = new CCRequest({
   baseURL: BASE_URL,
   timeout: TIME_OUT,
-  interceptor: {
+  interceptors: {
     requestInterceptor: (config) => {
       console.log('请求成功的拦截')
 
@@ -15,9 +15,9 @@ const ccRequest = new CCRequest({
       return err
     },
 
-    responseInterceptor: (err) => {
+    responseInterceptor: (config) => {
       console.log('响应成功的拦截')
-      return err
+      return config
     },
     responseInterceptorCatch: (err) => {
       return err

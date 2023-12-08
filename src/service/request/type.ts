@@ -9,5 +9,5 @@ export interface CCRequestInterceptors<T = AxiosResponse> {
 
 //拓展AxiosRequestConfig
 export interface CCRequestConfig extends AxiosRequestConfig {
-  interceptor?: CCRequestInterceptors
+  interceptors?: CCRequestInterceptors
 }
