@@ -72,28 +72,33 @@ class CCRequest {
       }
     )
   }
-  request(config: CCRequestConfig): void {
-    // 1.单个请求对请求config的处理
-    if (config.interceptors?.requestInterceptor) {
-      config = config.interceptors.requestInterceptor(config)
-    }
+  request<T>(config: CCRequestConfig): Promise<T> {
+    return new Promise((resolve, reject) => {
+      // 1.单个请求对请求config的处理
+      if (config.interceptors?.requestInterceptor) {
+        config = config.interceptors.requestInterceptor(config)
+      }
 
-    // 2.判断是否需要显示loading
-    if (config.showLoading === false) {
-      this.showLoading = config.showLoading
-    }
-    this.instance
-      .request(config)
-      .then((res) => {
-        console.log('打印结果', res)
-        // 2.将showLoading设置true, 这样不会影响下一个请求
-        this.showLoading = DEAFULT_LOADING
-      })
-      .catch((res) => {
-        // 将showLoading设置true, 这样不会影响下一个请求
-        this.showLoading = DEAFULT_LOADING
-        return res
-      })
+      // 2.判断是否需要显示loading
+      if (config.showLoading === false) {
+        this.showLoading = config.showLoading
+      }
+      this.instance
+        .request<any, T>(config)
+        .then((res) => {
+          console.log('打印结果', res)
+          // 2.将showLoading设置true, 这样不会影响下一个请求
+          this.showLoading = DEAFULT_LOADING
+          resolve(res)
+          return res
+        })
+        .catch((err) => {
+          // 将showLoading设置true, 这样不会影响下一个请求
+          this.showLoading = DEAFULT_LOADING
+          reject(err)
+          return err
+        })
+    })
   }
   get(): void {
     console.log('...')

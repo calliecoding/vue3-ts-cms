@@ -17,22 +17,30 @@ app.use(globalRegister)
 app.use(router)
 app.use(store)
 app.mount('#app')
+interface DataType {
+  data: any
+  returnCode: string
+  success: boolean
+}
+// ccRequest.request<DataType>({ url: '/home/multidata', method: 'GET' })
+ccRequest
+  .request<DataType>({
+    url: '/home/multidata',
+    method: 'GET',
+    showLoading: false,
+    interceptors: {
+      requestInterceptor: (config) => {
+        console.log('单独请求的成功拦截')
 
-// ccRequest.request({ url: '/home/multidata', method: 'GET' })
-ccRequest.request({
-  url: '/home/multidata',
-  method: 'GET',
-  showLoading: false,
-  interceptors: {
-    requestInterceptor: (config) => {
-      console.log('单独请求的成功拦截')
+        return config
+      },
 
-      return config
-    },
-
-    responseInterceptor: (config) => {
-      console.log('单独响应的成功拦截')
-      return config
+      responseInterceptor: (config) => {
+        console.log('单独响应的成功拦截')
+        return config
+      }
     }
-  }
-})
+  })
+  .then((res) => {
+    console.log(res.data)
+  })
