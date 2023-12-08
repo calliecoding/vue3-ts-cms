@@ -18,4 +18,4 @@ app.use(router)
 app.use(store)
 app.mount('#app')
 
-ccRequest.request()
+ccRequest.request({ url: '/home/multidata', method: 'GET' })

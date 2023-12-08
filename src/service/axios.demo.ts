@@ -58,8 +58,8 @@ axios
     axios.post('/post', { data: { name: 'why', age: 18 } })
   ])
   .then((res) => {
-    console.log(res[0].data)
-    console.log(res[1].data)
+    // console.log(res[0].data)
+    // console.log(res[1].data)
   })
 
 // 6.axios的拦截器
