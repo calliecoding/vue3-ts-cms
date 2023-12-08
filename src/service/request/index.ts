@@ -72,7 +72,7 @@ class CCRequest {
       }
     )
   }
-  request<T>(config: CCRequestConfig): Promise<T> {
+  request<T>(config: CCRequestConfig<T>): Promise<T> {
     return new Promise((resolve, reject) => {
       // 1.单个请求对请求config的处理
       if (config.interceptors?.requestInterceptor) {
@@ -87,6 +87,11 @@ class CCRequest {
         .request<any, T>(config)
         .then((res) => {
           console.log('打印结果', res)
+          console.log('config', config)
+          // 1.单个请求对数据的处理
+          if (config.interceptors?.responseInterceptor) {
+            res = config.interceptors.responseInterceptor(res)
+          }
           // 2.将showLoading设置true, 这样不会影响下一个请求
           this.showLoading = DEAFULT_LOADING
           resolve(res)
@@ -100,18 +105,18 @@ class CCRequest {
         })
     })
   }
-  get<T>(config: CCRequestConfig): Promise<T> {
+  get<T>(config: CCRequestConfig<T>): Promise<T> {
     console.log('...')
     return this.request({ ...config, method: 'GET' })
   }
-  post<T>(config: CCRequestConfig): Promise<T> {
+  post<T>(config: CCRequestConfig<T>): Promise<T> {
     return this.request({ ...config, method: 'POST' })
   }
-  delete<T>(config: CCRequestConfig): Promise<T> {
+  delete<T>(config: CCRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'DELETE' })
   }
 
-  patch<T>(config: CCRequestConfig): Promise<T> {
+  patch<T>(config: CCRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'PATCH' })
   }
 }

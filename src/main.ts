@@ -28,10 +28,11 @@ ccRequest
     url: '/home/multidata',
     method: 'GET',
     showLoading: false,
+    headers: {},
     interceptors: {
       requestInterceptor: (config) => {
-        console.log('单独请求的成功拦截')
-
+        console.log('单独请求的成功拦截111', config)
+        config.headers['token'] = '123testhhhh'
         return config
       },
 

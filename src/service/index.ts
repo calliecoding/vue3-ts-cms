@@ -7,9 +7,9 @@ const ccRequest = new CCRequest({
   timeout: TIME_OUT,
   interceptors: {
     requestInterceptor: (config) => {
-      console.log('请求成功的拦截')
+      console.log('实例请求成功的拦截', config)
       // 携带token的拦截
-      const token = ''
+      const token = 'hhhhh'
       if (token) {
         config.headers.Authorization = `Bearer ${token}`
       }

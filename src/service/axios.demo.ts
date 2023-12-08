@@ -52,15 +52,15 @@ axios.defaults.timeout = 10000
 //   })
 
 // 5.axios.all -> 多个请求, 一起返回
-axios
-  .all([
-    axios.get('/get', { params: { name: 'why', age: 18 } }),
-    axios.post('/post', { data: { name: 'why', age: 18 } })
-  ])
-  .then((res) => {
-    // console.log(res[0].data)
-    // console.log(res[1].data)
-  })
+// axios
+//   .all([
+//     axios.get('/get', { params: { name: 'why', age: 18 } }),
+//     axios.post('/post', { data: { name: 'why', age: 18 } })
+//   ])
+//   .then((res) => {
+//     // console.log(res[0].data)
+//     // console.log(res[1].data)
+//   })
 
 // 6.axios的拦截器
 // fn1: 请求发送成功会执行的函数
@@ -70,11 +70,11 @@ axios.interceptors.request.use(
     // 想做的一些操作
     // 1.给请求添加token
     // 2.isLoading动画
-    console.log('请求成功的拦截')
+    console.log('请求成功的拦截demo')
     return config
   },
   (err) => {
-    console.log('请求发送错误')
+    console.log('请求发送错误demo')
     return err
   }
 )
