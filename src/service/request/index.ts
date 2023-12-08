@@ -100,11 +100,19 @@ class CCRequest {
         })
     })
   }
-  get(): void {
+  get<T>(config: CCRequestConfig): Promise<T> {
     console.log('...')
+    return this.request({ ...config, method: 'GET' })
   }
-  post(): void {
-    console.log('...')
+  post<T>(config: CCRequestConfig): Promise<T> {
+    return this.request({ ...config, method: 'POST' })
+  }
+  delete<T>(config: CCRequestConfig): Promise<T> {
+    return this.request<T>({ ...config, method: 'DELETE' })
+  }
+
+  patch<T>(config: CCRequestConfig): Promise<T> {
+    return this.request<T>({ ...config, method: 'PATCH' })
   }
 }
 
