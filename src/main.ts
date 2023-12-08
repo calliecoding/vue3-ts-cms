@@ -22,6 +22,7 @@ app.mount('#app')
 ccRequest.request({
   url: '/home/multidata',
   method: 'GET',
+  showLoading: false,
   interceptors: {
     requestInterceptor: (config) => {
       console.log('单独请求的成功拦截')

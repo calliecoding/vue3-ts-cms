@@ -10,4 +10,5 @@ export interface CCRequestInterceptors<T = AxiosResponse> {
 //拓展AxiosRequestConfig
 export interface CCRequestConfig extends AxiosRequestConfig {
   interceptors?: CCRequestInterceptors
+  showLoading?: boolean
 }
