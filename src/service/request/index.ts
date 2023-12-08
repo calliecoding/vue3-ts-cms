@@ -44,7 +44,11 @@ class CCRequest {
       }
     )
   }
-  request(config: AxiosRequestConfig): void {
+  request(config: CCRequestConfig): void {
+    // 1.单个请求对请求config的处理
+    if (config.interceptors?.requestInterceptor) {
+      config = config.interceptors.requestInterceptor(config)
+    }
     this.instance.request(config).then((res) => {
       console.log('打印结果', res)
     })

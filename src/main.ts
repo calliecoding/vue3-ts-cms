@@ -19,3 +19,19 @@ app.use(store)
 app.mount('#app')
 
 ccRequest.request({ url: '/home/multidata', method: 'GET' })
+ccRequest.request({
+  url: '/home/multidata',
+  method: 'GET',
+  interceptors: {
+    requestInterceptor: (config) => {
+      console.log('单独请求的成功拦截')
+
+      return config
+    },
+
+    responseInterceptor: (config) => {
+      console.log('单独响应的成功拦截')
+      return config
+    }
+  }
+})
