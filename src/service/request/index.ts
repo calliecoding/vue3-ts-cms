@@ -36,7 +36,7 @@ class CCRequest {
     this.instance.interceptors.response.use(
       (res) => {
         console.log('所有的实例都有的拦截器: 响应成功拦截')
-        return res
+        return res.data
       },
       (err) => {
         console.log('所有的实例都有的拦截器: 响应失败拦截')
