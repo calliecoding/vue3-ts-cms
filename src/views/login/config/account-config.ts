@@ -1,5 +1,5 @@
 // 编写好规则
-export const rules = {
+const rules = {
   name: [
     {
       required: true,
@@ -25,3 +25,5 @@ export const rules = {
     }
   ]
 }
+
+export { rules }

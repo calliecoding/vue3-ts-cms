@@ -1,10 +1,12 @@
 import type { App } from 'vue'
 import {
   ElButton,
+  ElCheckbox,
   ElForm,
   ElFormItem,
   ElIcon,
   ElInput,
+  ElLink,
   ElRow,
   ElTabPane,
   ElTable
@@ -21,7 +23,9 @@ export default function (app: App): void {
     Iphone,
     ElForm,
     ElFormItem,
-    ElInput
+    ElInput,
+    ElCheckbox,
+    ElLink
   ]
   for (const component of components) {
     app.component(component.name, component)
