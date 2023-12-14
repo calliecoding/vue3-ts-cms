@@ -9,7 +9,7 @@
             <span>账号登录</span>
           </span>
         </template>
-        账号登录
+        <login-account />
       </el-tab-pane>
       <el-tab-pane>
         <template #label>
@@ -18,13 +18,16 @@
             <span>手机登录</span>
           </span>
         </template>
-        手机登录
+        <login-phone />
       </el-tab-pane>
     </el-tabs>
   </div>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+import LoginAccount from './login-account.vue'
+import LoginPhone from './login-phone.vue'
+</script>
 
 <style lang="less" scoped>
 .login-panel {
