@@ -1,8 +1,10 @@
 import { createApp } from 'vue'
 import type { App } from 'vue'
 import rootApp from './App.vue'
+import 'normalize.css'
+import '@/assets/css/index.less'
 
-import './service/axios.demo'
+// import './service/axios.demo'
 import ccRequest from './service'
 
 import router from './router'
