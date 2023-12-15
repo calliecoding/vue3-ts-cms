@@ -16,7 +16,9 @@ import { reactive, defineExpose, ref } from 'vue'
 import { rules } from '../config/account-config'
 import { ElForm } from 'element-plus'
 import localCache from '@/utils/cache'
+import { useStore } from 'vuex'
 
+const store = useStore()
 const account = reactive({
   name: localCache.getCache('name') ?? '',
   password: localCache.getCache('password') ?? ''
@@ -38,6 +40,7 @@ const loginAction = (isKeepPassword: boolean) => {
         localCache.deleteCache('password')
       }
       // 2.开始进行登录验证
+      store.dispatch('login/accountLoginAction', { ...account })
     } else {
       // 验证不通过
     }

@@ -7,7 +7,6 @@ const ccRequest = new CCRequest({
   timeout: TIME_OUT,
   interceptors: {
     requestInterceptor: (config) => {
-      console.log('实例请求成功的拦截', config)
       // 携带token的拦截
       const token = 'hhhhh'
       if (token) {
@@ -20,7 +19,6 @@ const ccRequest = new CCRequest({
     },
 
     responseInterceptor: (config) => {
-      console.log('响应成功的拦截')
       return config
     },
     responseInterceptorCatch: (err) => {

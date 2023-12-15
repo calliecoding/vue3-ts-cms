@@ -33,13 +33,11 @@ ccRequest
     headers: {},
     interceptors: {
       requestInterceptor: (config) => {
-        console.log('单独请求的成功拦截111', config)
         config.headers['token'] = '123testhhhh'
         return config
       },
 
       responseInterceptor: (config) => {
-        console.log('单独响应的成功拦截')
         return config
       }
     }
