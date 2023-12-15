@@ -42,7 +42,7 @@ const accountRef = ref<InstanceType<typeof LoginAccount>>()
 
 const handleLoginClick = () => {
   console.log('立即登录', accountRef.value)
-  accountRef.value?.loginAction()
+  accountRef.value?.loginAction(isKeepPassword.value)
 }
 </script>
 
