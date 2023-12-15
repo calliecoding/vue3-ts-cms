@@ -15,7 +15,10 @@ const loginModule: Module<ILoginState, IRootState> = {
   getters: {},
   actions: {
     accountLoginAction({ commit }, payload) {
-      console.log('payload', payload)
+      console.log('accountLoginAction', payload)
+    },
+    phoneLoginAction({ commit }, payload) {
+      console.log('phoneLoginAction', payload)
     }
   }
 }
