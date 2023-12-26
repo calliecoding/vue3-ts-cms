@@ -20,10 +20,9 @@
                 <!-- 二级菜单的可以展开的标题 -->
                 <el-sub-menu :index="item.id + ''">
                   <template #title>
-                    <el-icon
-                      v-if="item.icon"
-                      :class="item.icon.replace('el-', '')"
-                    ></el-icon>
+                    <el-icon v-if="item.icon"
+                      ><icon-map :icon="item.icon"
+                    /></el-icon>
                     <span>{{ item.name }}</span>
                   </template>
                   <!-- 遍历里面的item -->
@@ -53,8 +52,12 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import { useStore } from 'vuex'
+import IconMap from './icon-map.vue'
 
 export default defineComponent({
+  components: {
+    IconMap
+  },
   setup() {
     const store = useStore()
     const userMenus = computed(() => store.state.login.userMenus)
