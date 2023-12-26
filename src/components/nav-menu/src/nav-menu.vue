@@ -7,7 +7,13 @@
     <div>
       <el-row class="tac">
         <el-col :span="24">
-          <el-menu default-active="2" class="el-menu-vertical-demo">
+          <el-menu
+            default-active="2"
+            class="el-menu-vertical"
+            background-color="#0c2135"
+            text-color="#b7bdc3"
+            active-text-color="#0a60bd"
+          >
             <template v-for="item in userMenus" :key="item.id">
               <!-- 二级菜单 -->
               <template v-if="item.type === 1">
