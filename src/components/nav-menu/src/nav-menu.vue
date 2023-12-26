@@ -2,12 +2,13 @@
   <div class="nav-menu">
     <div class="logo">
       <img class="img" src="~@/assets/img/logo.svg" alt="logo" />
-      <span class="title">Vue3+TS</span>
+      <span v-show="!collapse" class="title">Vue3+TS</span>
     </div>
     <div>
       <el-row class="tac">
         <el-col :span="24">
           <el-menu
+            :collapse="collapse"
             default-active="2"
             class="el-menu-vertical"
             background-color="#0c2135"
@@ -55,6 +56,12 @@ import { useStore } from 'vuex'
 import IconMap from './icon-map.vue'
 
 export default defineComponent({
+  props: {
+    collapse: {
+      type: Boolean,
+      default: false
+    }
+  },
   components: {
     IconMap
   },
