@@ -11,21 +11,25 @@ import {
   ElTabPane,
   ElTable
 } from 'element-plus'
-import { User, Iphone } from '@element-plus/icons-vue'
+import { User, Iphone, Expand, Fold } from '@element-plus/icons-vue'
 export default function (app: App): void {
   const components = [
     ElButton,
     ElRow,
     ElTable,
     ElTabPane,
-    ElIcon,
-    User,
-    Iphone,
+
     ElForm,
     ElFormItem,
     ElInput,
     ElCheckbox,
-    ElLink
+    ElLink,
+    // Icon
+    ElIcon,
+    User,
+    Iphone,
+    Expand,
+    Fold
   ]
   for (const component of components) {
     app.component(component.name, component)
